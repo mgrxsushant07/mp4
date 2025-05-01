@@ -1,0 +1,15 @@
+version: '3.9'  # Docker Compose version
+
+services:
+  web:  # Name of the service (like a container)
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Build the Docker image using the Dockerfile in the current directory
+    ports:
+      - "8001:8001"  # Map port 8000 on your VPS to port 8000 inside the container
+    volumes:
+      - .:/app  # Sync current folder (host) with /app folder inside the container (for live code changes)
+    command: python manage.py runserver 0.0.0.0:8001  # Command to run the Django server inside the container
