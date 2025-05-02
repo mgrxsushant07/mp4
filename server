@@ -1,9 +1,7 @@
 server {
     listen 80;
-    server_name gahasushant.com.np www.gahasushant.com.np;
-
-
-
+    server_name 139.84.145.197;
+    
     location / {
         proxy_pass http://127.0.0.1:8001;
         proxy_set_header Host $host;
