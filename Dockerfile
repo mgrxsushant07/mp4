@@ -18,6 +18,9 @@ COPY requirements.txt /app/
 # Install the Python dependencies
 RUN pip install -r requirements.txt
 
+# Install ffmpeg for yt-dlp post-processing
+RUN apt-get update && apt-get install -y ffmpeg
+
 # Copy the Django project code into the container
 COPY . /app
 
